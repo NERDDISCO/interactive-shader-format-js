@@ -22,6 +22,10 @@ void main() {
   color = IMG_PIXEL(inputImage, vec2(x, y));
   color = IMG_PIXEL(inputImage, vec3(x, y, x).xy);
   color = IMG_PIXEL(inputImage, vec4(x, y, x, y).xy);
+  color = vec4(color.rgb, IMG_PIXEL(inputImage, gl_FragCoord.xy).a);
+  color = vec4(color.r, color.g, IMG_PIXEL(inputImage, gl_FragCoord.xy).b, color.a);
+  color = vec4(color.r, color.g, IMG_PIXEL(inputImage, vec4(x, y, x, y).xy).b, color.a);
+  color = vec4(IMG_PIXEL(inputImage, gl_FragCoord.xy).r, IMG_PIXEL(inputImage, gl_FragCoord.xy).g, IMG_PIXEL(inputImage, gl_FragCoord.xy).b, color.a);
 
   gl_FragColor = color;
 }

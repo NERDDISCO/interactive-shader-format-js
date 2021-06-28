@@ -23,6 +23,7 @@ void main() {
     color = IMG_NORM_PIXEL(inputImage, vec3(x, y, x).xy);
     color = IMG_NORM_PIXEL(inputImage, vec4(x, y, x, y).xy);
     color = IMG_NORM_PIXEL(inputImage,vec4(x,y,x,y).xy);
+    color = (IMG_NORM_PIXEL(inputImage, vec2(x, y))+(IMG_NORM_PIXEL(inputImage, vec2(x, y)))) / 2.0;
   
     gl_FragColor = color;
   }
